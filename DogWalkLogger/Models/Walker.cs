@@ -6,11 +6,10 @@ using MongoDB.Bson;
 
 namespace DogWalkLogger.Models
 {
-    public class Dog
+    public class Walker
     {
         public ObjectId id { get; set; }
         public string name { get; set; }
-        public int age { get; set; }
-        public Breed breed { get; set; }
+        public int walkscompleted { get; set; }
     }
 }

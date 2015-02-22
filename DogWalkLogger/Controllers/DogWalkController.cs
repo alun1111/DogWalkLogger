@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace DogWalkLogger.Controllers
 {
-    public class WalksDataController : ApiController
+    public class DogWalkController : ApiController
     {
         // GET api/<controller>
         public IEnumerable<string> Get()
