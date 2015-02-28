@@ -4,15 +4,20 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using DogWalkLogger.Models;
 
 namespace DogWalkLogger.Controllers
 {
     public class DogWalkController : ApiController
     {
         // GET api/<controller>
-        public IEnumerable<string> Get()
+        public List<DogWalk> Get()
         {
-            return new string[] { "value1", "value2" };
+            DogWalkService dws = new DogWalkService();
+
+            List<DogWalk> dw = dws.getAllDogWalks();
+
+            return dw;
         }
 
         // GET api/<controller>/5

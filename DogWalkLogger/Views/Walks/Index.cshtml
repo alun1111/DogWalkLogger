@@ -2,23 +2,38 @@
     Layout = null;
 }
 
-<script src="~/Scripts/globalize.js"></script>
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery-ui.min.js"></script>
 <script src="~/Scripts/jquery.datetimepicker.js"></script>
 <script src="~/Scripts/knockout-3.2.0.js"></script>
 <script src="~/Scripts/linq.min.js"></script>
 <script src="~/Scripts/moment.min.js"></script>
-<script src="~/Scripts/require.js"></script>
-<!DOCTYPE html>
+<script src="~/Scripts/ViewScripts/Walks.js"></script>
 
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
 <body>
-    <div> 
+    <div>
+        <table>
+            <thead>
+                <tr>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: dogWalks">
+                <tr>
+                    <td data-bind="text: id"></td>
+                    <td data-bind="text: dogWalked"></td>
+                    <td data-bind="text: walk"></td>
+                    <td data-bind="text: walker"></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
+
+<script type='text/javascript'>$(document).ready(WalksIndex);</script>

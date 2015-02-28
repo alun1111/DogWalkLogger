@@ -8,7 +8,7 @@ namespace DogWalkTests
     public class utDogWalk
     {
         [TestMethod]
-        public void Method1()
+        public void getWalk()
         {
             DogWalkService dws = new DogWalkService();
 
