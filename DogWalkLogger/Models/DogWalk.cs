@@ -12,14 +12,14 @@ namespace DogWalkLogger.Models
 {
     public class DogWalk
     {
-        public ObjectId id { get; set; }
+        public ObjectId? id { get; set; }
         //public Dog dogwalked { get; set; }
         //public Walk walk { get; set; }
         //public Walker walker { get; set; }
         public string dogWalked { get; set; }
         public string walk { get; set; }
         public string walker { get; set; }
-        public DateTime start { get; set; }
+        public DateTime? start { get; set; }
         public string comment { get; set; }
         public int rating { get; set; }
     }

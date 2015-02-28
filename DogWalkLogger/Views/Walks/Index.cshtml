@@ -14,7 +14,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Dog Walk Logger</title>
 </head>
 <body>
     <div>
@@ -26,12 +26,20 @@
             <tbody data-bind="foreach: dogWalks">
                 <tr>
                     <td data-bind="text: id"></td>
+                    <td data-bind="text: start"></td>
                     <td data-bind="text: dogWalked"></td>
                     <td data-bind="text: walk"></td>
                     <td data-bind="text: walker"></td>
+                    <td data-bind="text: comment"></td>
                 </tr>
             </tbody>
         </table>
+        <p>Walk start: <input type="text" data-bind="timepicker: start" /></p>
+        <p>Which dog walked: <input type="text" data-bind="value: dogWalked" /></p>
+        <p>Which walk: <input type="text" data-bind="value: walk" /></p>
+        <p>Walked by: <input type="text" data-bind="value: walker" /></p>
+        <p>Comment: <input type="text" data-bind="value: comment" /></p>
+        <p><input type="submit" data-bind="click: saveWalk" value="Save" /></p>
     </div>
 </body>
 </html>

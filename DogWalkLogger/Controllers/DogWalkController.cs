@@ -27,8 +27,11 @@ namespace DogWalkLogger.Controllers
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        public void Post(DogWalk dw)
         {
+            DogWalkService dws = new DogWalkService();
+
+            dws.insertDogWalk(dw);
         }
 
         // PUT api/<controller>/5
