@@ -102,12 +102,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\dogwalk.css" />
+    <Content Include="Content\jquery-te.png" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\jquery.datetimepicker.css" />
+    <Content Include="Content\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.datetimepicker.js" />
     <Content Include="Scripts\knockout-3.2.0.js" />
     <Content Include="Scripts\linq.min.js" />
+    <Content Include="Scripts\Modules\cust_knockout_bindings.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\ViewScripts\Walks.js" />
     <Content Include="Web.config" />

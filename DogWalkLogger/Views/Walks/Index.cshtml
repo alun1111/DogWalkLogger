@@ -2,19 +2,15 @@
     Layout = null;
 }
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery-ui.min.js"></script>
-<script src="~/Scripts/jquery.datetimepicker.js"></script>
-<script src="~/Scripts/knockout-3.2.0.js"></script>
-<script src="~/Scripts/linq.min.js"></script>
-<script src="~/Scripts/moment.min.js"></script>
-<script src="~/Scripts/ViewScripts/Walks.js"></script>
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Dog Walk Logger</title>
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery.datetimepicker.css" rel="stylesheet" />
+    <link href="~/Content/jquery.ui.theme.css" rel="stylesheet" />
 </head>
 <body>
     <div>
@@ -34,7 +30,7 @@
                 </tr>
             </tbody>
         </table>
-        <p>Walk start: <input type="text" data-bind="timepicker: start" /></p>
+        <p>Walk start: <input type="text" data-bind="datetimepicker: start" /></p>
         <p>Which dog walked: <input type="text" data-bind="value: dogWalked" /></p>
         <p>Which walk: <input type="text" data-bind="value: walk" /></p>
         <p>Walked by: <input type="text" data-bind="value: walker" /></p>
@@ -44,4 +40,12 @@
 </body>
 </html>
 
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
+<script src="~/Scripts/jquery.datetimepicker.js"></script>
+<script src="~/Scripts/knockout-3.2.0.js"></script>
+<script src="~/Scripts/linq.min.js"></script>
+<script src="~/Scripts/moment.min.js"></script>
+<script src="~/Scripts/Modules/cust_knockout_bindings.js"></script>
+<script src="~/Scripts/ViewScripts/Walks.js"></script>
 <script type='text/javascript'>$(document).ready(WalksIndex);</script>
