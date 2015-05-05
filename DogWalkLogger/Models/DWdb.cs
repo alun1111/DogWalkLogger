@@ -27,7 +27,11 @@ namespace DogWalkLogger.Models
             }
         }
 
-        public Table<dogwalk> dogwalks { get; set; }     
+        public Table<dogwalk> dogwalks { get; set; }
+        public Table<walker> walkers { get; set; }
+        public Table<breed> breeds { get; set; }
+        public Table<dog> dogs { get; set; }
+        public Table<walk> walks { get; set; }
     }
 
     [Table(Name = "dogwalk")]
@@ -53,5 +57,63 @@ namespace DogWalkLogger.Models
 
         [Column(DbType = "int null")]
         public int? rating { get; set; }
+    }
+
+    [Table(Name = "breed")]
+    public class breed
+    {
+        [Column(DbType = "int not null", IsPrimaryKey = true, IsDbGenerated = true)]
+        public int id { get; set; }
+
+        [Column(DbType = "varchar(255) null")]
+        public string name { get; set; }
+
+        [Column(DbType = "varchar(max) null")]
+        public string description { get; set; }
+    }
+
+    [Table(Name = "dog")]
+    public class dog
+    {
+        [Column(DbType = "int not null", IsPrimaryKey = true, IsDbGenerated = true)]
+        public int id { get; set; }
+
+        [Column(DbType = "varchar(255) null")]
+        public string name { get; set; }
+
+        [Column(DbType = "int null")]
+        public int age { get; set; }
+
+        [Column(DbType = "int null")]
+        public int? breedID { get; set; }
+    }
+
+    [Table(Name = "walk")]
+    public class walk
+    {
+        [Column(DbType = "int not null", IsPrimaryKey = true, IsDbGenerated = true)]
+        public int id { get; set; }
+
+        [Column(DbType = "varchar(255) null")]
+        public string name { get; set; }
+
+        [Column(DbType = "decimal(18,2) null")]
+        public decimal? distance { get; set; }
+
+        [Column(DbType = "varchar(max) null")]
+        public string location { get; set; }
+    }
+
+    [Table(Name = "walker")]
+    public class walker
+    {
+        [Column(DbType = "int not null", IsPrimaryKey = true, IsDbGenerated = true)]
+        public int id { get; set; }
+
+        [Column(DbType = "varchar(255) null")]
+        public string name { get; set; }
+
+        [Column(DbType = "int null")]
+        public int walkscompleted { get; set; }
     }
 }

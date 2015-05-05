@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DogWalkLogger.Models
 {
@@ -22,14 +25,20 @@ namespace DogWalkLogger.Models
     /// </summary>
     public class DogWalkService
     {
+        private DWdb dw { get; set; }
+
         public DogWalkService()
         {
-            DWdb dw = new DWdb();
+            dw = new DWdb();
         }
 
         public DogWalk getDogWalk(dogwalk row)
         {
             DogWalk output = new DogWalk();
+
+            DogService ds = new DogService();
+            WalkService ws = new WalkService();
+            WalkerService was = new WalkerService();
 
             output.id = row.id;
             output.dogWalked = Convert.ToString(row.dogID); //todo
@@ -44,13 +53,33 @@ namespace DogWalkLogger.Models
 
         public List<DogWalk> getAllDogWalks()
         {
+            List<dogwalk> tmp = dw.dogwalks.ToList();
+            List<DogWalk> output = new List<DogWalk>();
 
-            return null;
+            if (tmp != null)
+            {
+                foreach (var row in tmp)
+                {
+                    output.Add(getDogWalk(row));
+                }
+            }
+
+            return output;
         }
 
-        public void insertDogWalk(DogWalk entity)
+        public void insertDogWalk(DogWalk row)
         {
+            dogwalk output = new dogwalk();
 
+            output.dogID = 0; //dw.dogWalked; 
+            output.walkID = 0; //dw.walk;
+            output.walkerID = 0; //dw.walker;
+            output.started = row.start;
+            output.rating = row.rating;
+
+            dw.dogwalks.InsertOnSubmit(output);
+
+            dw.SubmitChanges();
         }
     }
 }
