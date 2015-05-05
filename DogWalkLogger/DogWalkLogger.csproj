@@ -48,6 +48,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -130,6 +131,7 @@
     <Compile Include="Models\Breed.cs" />
     <Compile Include="Models\Dog.cs" />
     <Compile Include="Models\DogWalk.cs" />
+    <Compile Include="Models\DWdb.cs" />
     <Compile Include="Models\Walker.cs" />
     <Compile Include="Models\Walk.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

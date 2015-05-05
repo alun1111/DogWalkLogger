@@ -8,7 +8,7 @@ namespace DogWalkLogger.Models
 {
     public class Dog
     {
-        public ObjectId id { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
         public int age { get; set; }
         public Breed breed { get; set; }

@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using MongoDB.Bson;
-using MongoDB.Driver;
-using MongoDB.Driver.Builders;
-using MongoDB.Driver.GridFS;
-using MongoDB.Driver.Linq;
 
 namespace DogWalkLogger.Models
 {
     public class DogWalk
     {
-        public ObjectId? id { get; set; }
+        public int? id { get; set; }
         //public Dog dogwalked { get; set; }
         //public Walk walk { get; set; }
         //public Walker walker { get; set; }
@@ -21,7 +14,7 @@ namespace DogWalkLogger.Models
         public string walker { get; set; }
         public DateTime? start { get; set; }
         public string comment { get; set; }
-        public int rating { get; set; }
+        public int? rating { get; set; }
     }
 
     /// <summary>
@@ -29,44 +22,35 @@ namespace DogWalkLogger.Models
     /// </summary>
     public class DogWalkService
     {
-        private string connectionString;
-        private MongoClient client;
-        private MongoServer server;
-        private MongoDatabase database;
-        private MongoCollection collection;
-
         public DogWalkService()
         {
-            // Connect to MongoDB instance
-            connectionString = "mongodb://localhost";
-            client = new MongoClient(connectionString);
-            server = client.GetServer();
-            database = server.GetDatabase("dogwalklogger");
-            collection = database.GetCollection<DogWalk>("DogWalks");
+            DWdb dw = new DWdb();
         }
 
-        public DogWalk getDogWalk()
+        public DogWalk getDogWalk(dogwalk row)
         {
-            // "DogWalks" is the name of the collection (pluralise as in Linq to SQL)
-            var query = Query<DogWalk>.EQ(e => e.walker, "Alun");
+            DogWalk output = new DogWalk();
 
-            var entity = collection.FindOneAs<DogWalk>(query);
+            output.id = row.id;
+            output.dogWalked = Convert.ToString(row.dogID); //todo
+            output.walk = Convert.ToString(row.walkID); //todo
+            output.walker = Convert.ToString(row.walkerID); //todo
+            output.start = row.started;
+            output.rating = row.rating;
 
-            return entity;
+            return null;
             
         }
 
         public List<DogWalk> getAllDogWalks()
         {
-            List<DogWalk> entity = collection.FindAllAs<DogWalk>().ToList();
 
-            return entity;
+            return null;
         }
 
         public void insertDogWalk(DogWalk entity)
         {
-            collection.Insert(entity);
-            var id = entity.id; // Insert will set the Id if necessary (as it was in this example)
+
         }
     }
 }
